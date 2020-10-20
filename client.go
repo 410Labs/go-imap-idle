@@ -66,6 +66,7 @@ func (c *Client) Idle(stop <-chan struct{}) error {
 			if err := <-done; err != nil {
 				return err
 			}
+			return nil
 		case <-stop:
 			close(stopOrRestart)
 			return <-done
@@ -74,6 +75,7 @@ func (c *Client) Idle(stop <-chan struct{}) error {
 			if err != nil {
 				return err
 			}
+			return nil
 		}
 	}
 }
